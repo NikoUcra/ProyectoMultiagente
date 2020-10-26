@@ -1,5 +1,41 @@
 <!DOCTYPE html>
 <html>
+
+<!--CSS-->
+<style>
+    /* CSS para dividir en tres columnas la página */
+    div.column1 {
+      float: left;
+      width: 23%;
+    }
+    
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    div.caja {
+        width: 95%;
+        height: 650px;
+        overflow: auto;
+        background-color: WhiteSmoke;
+        border-style: solid;
+        border-width: 1px;
+    }
+    
+    div.cliente {
+        min-width:99%;
+        height: 30px;
+        padding-top: 10px;
+        border-style: solid;
+        border-width: 1px;
+        background-color: LightGray;
+    }
+    </style>
+
 <head>
     <meta charset="UTF-8">
     <title>Clientes JavaScript</title>
@@ -9,15 +45,55 @@
 </head>
 <body>
     <div>
-        <FORM name="form">
-            <label for="fname">Introduzca IP del Monitor</label>
-		    <input type="text" name="ip" placeholdervalue="IP MONITOR"> 
-        </FORM> 
-        <FORM name="form"> 
-            <label for="lname">Introduzca el Puerto del Monitor</label>
-            <input type="text" name="port" placeholdervalue="PUERTO MONITOR"> 
-            <input type="submit" onclick="pasatext()" value="OK"> 
-        </FORM>
+        <br>
+        <form>
+            IP MONITOR <input type="text" name="ip" placeholdervalue="IP MONITOR"> 
+            PUERTO MONITOR <input type="text" name="port" placeholdervalue="PUERTO MONITOR"> 
+            Nº COMPRADORES <input type="text" name="port" placeholdervalue="NUMCOMPRADORES"> 
+        </form>
+        <br>
+        <input type="submit" onclick="pasatext()" value="EJECUTAR"> 
     </div> 
+    
+         <div class="row">
+        <!--Lista de compradores-->
+        <div class="column1">
+            <h2 style="border-style: hidden hidden solid hidden">COMPRADORES</h2>
+            <div class="caja" id="customerList">
+            </div>
+        </div>
+        <div class="column1">
+            <h2 style="border-style: hidden hidden solid hidden">COMPRADOS</h2>
+            <div class="caja" id="comprados">
+            </div>
+        </div>
+        <!--Monitores - Global y por comprador -->
+        <div class="column1">
+            <h2 style="border-style: hidden hidden solid hidden" id="tituloComprador">RECADOS</h2>
+            <!--Monitor global-->
+            <div class="caja" id="cajaGeneral">
+            </div>
+        </div>
+        <!--Log de cada cliente (el monitor general no utiliza el log)-->
+        <div class="column1">
+            <h2 style="border-style: hidden hidden solid hidden">LOG</h2>
+            <div class="caja" id="log">
+                <h3>Generados:</h3>
+                <p id="compradoresTotales"></p>
+                <h3>Finalizados:</h3>
+                <p id="compradoresFinalizados"></p>
+                <h3>Finalizados con éxito:</h3>
+                <p id="compradoresExito"></p>
+                <h3>Finalizados con fracaso:</h3>
+                <p id="compradoresFracaso"></p>
+                <h3>Cantidad total de mensajes:</h3>
+                <p id="mensajesTotal"></p>
+                <h3>Hora Inicio:</h3>
+                <p id="horaInicioTotal"></p>
+                <h3>Hora Finalización:</h3>
+                <p id="horaFinTotal"></p>
+            </div>
+        </div>
+      </div>
 </body>
 </html>
