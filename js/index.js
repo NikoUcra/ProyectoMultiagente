@@ -1,4 +1,7 @@
-<SCRIPT language="javascript"> 
-		function pasatext(){ 
-		window.open('compradores.htm','winpop','width=240,height=100')} 
-</SCRIPT>
+function main() {
+	var ipM = $("#ip").val();
+	var portM = $("#port").val();
+	var nC = $("#ncompradores").val();
+	const agente = new Agente(ipM, portM, nC);
+	agente.run();
+}
